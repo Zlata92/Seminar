@@ -1,28 +1,24 @@
-﻿int dayNumber = ReadInt("Введите число от 1 до 7: ");
-Console.WriteLine(WorkHoliday(dayNumber));
+﻿Console.WriteLine ("Введите трехзначное число ");
+int num=Convert.ToInt32 (Console.ReadLine ());
+int amount = num.ToString().Length;
 
-int ReadInt(string message)
+if (amount < 3 || amount>3)
+{
+    Console.WriteLine("Вы ввели не трехзначное число");
+} 
+else
+{
+    Console.WriteLine(InCenter(num));
+}   
+ int message (string message) 
 {
     Console.Write(message);
     return Convert.ToInt32(Console.ReadLine());
 }
 
-string WorkHoliday(int a)
+int InCenter(int a)
 {
-    if (a > 0 && a < 8)
-    {
-        if (a == 7 || a == 6)
-        {
-            Console.Write("Под цифрой " + a + " - Выходной");
-        }
-        else
-        {
-            Console.Write("Под цифрой " + a + " - Рабочий");
-        }
-    }
-    else
-    {
-        Console.Write("Вы ввели число не в пределах от 1 до 7, поэтому не возможно определить");
-    }
-    return " день.";
+    
+    int result = ((a / 10) % 10);
+    return result;
 }
